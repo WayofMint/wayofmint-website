@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <title>Privacy Policy — WayofMint</title>
+    <meta name="description" content="Privacy Policy for WayofMint and its advertising automation tools. Learn how we handle data for Meta Marketing API integrations.">
+    <link rel="canonical" href="https://wayofmint.com/privacy.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wayofmint.com/privacy.html">
+    <meta property="og:title" content="Privacy Policy — WayofMint">
+    <meta property="og:description" content="Privacy Policy for WayofMint and its advertising automation tools.">
+    <meta property="og:image" content="https://wayofmint.com/New+WayofMint+Logo%20(1).webp">
+    <meta property="og:site_name" content="WayofMint">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Privacy Policy — WayofMint">
+    <meta name="twitter:description" content="Privacy Policy for WayofMint and its advertising automation tools.">
+    <meta name="twitter:image" content="https://wayofmint.com/New+WayofMint+Logo%20(1).webp">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#2b3725">
+    <meta name="author" content="WayofMint">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --black:     #2b3725;
+            --black-2:   #232f1e;
+            --black-3:   #344129;
+            --gold:      #FFCF5A;
+            --gold-soft: #FBE19F;
+            --bronze:    #655A3F;
+            --cream:     #F0EBE0;
+            --text:      #E2DDD4;
+            --muted:     rgba(226, 221, 212, 0.42);
+            --border:    rgba(255, 207, 90, 0.12);
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body:    'DM Sans', -apple-system, sans-serif;
+            --font-label:   'Syne', -apple-system, sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background: var(--black);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Grain overlay ── */
+        .grain {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 9999; opacity: 0.045;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-size: 256px 256px; mix-blend-mode: overlay; contain: strict;
+        }
+
+        /* ── Navigation ── */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 0 60px; height: 180px;
+            display: flex; align-items: center; justify-content: space-between;
+            overflow: visible;
+            transition: background 0.6s ease, box-shadow 0.6s ease;
+        }
+        .nav.scrolled {
+            background: rgba(43, 55, 37, 0.96);
+            backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+            box-shadow: 0 1px 0 rgba(255, 207, 90, 0.08);
+        }
+        .nav-logo img {
+            height: 160px; width: auto; display: block;
+            transition: opacity 0.3s ease;
+        }
+        .nav-logo img:hover { opacity: 0.8; }
+        .nav-links { display: flex; align-items: center; gap: 44px; list-style: none; }
+        .nav-links a {
+            font-family: var(--font-label);
+            font-size: 0.75rem; font-weight: 500;
+            letter-spacing: 0.18em; text-transform: uppercase;
+            color: rgba(226,221,212,0.7); text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--cream); }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 100%; height: 1px; background: var(--gold); transform: scaleX(0); transform-origin: right; transition: transform 0.5s cubic-bezier(.19,1,.22,1); }
+        .nav-link:hover::after { transform: scaleX(1); transform-origin: left; }
+        .nav-cta {
+            color: var(--gold) !important;
+            border: 1px solid rgba(255, 207, 90, 0.35) !important;
+            padding: 11px 28px !important;
+            transition: all 0.4s ease !important;
+        }
+        .nav-cta:hover {
+            background: var(--gold) !important;
+            color: var(--black) !important;
+            border-color: var(--gold) !important;
+        }
+        .hamburger {
+            display: none; flex-direction: column; gap: 5px;
+            cursor: pointer; background: none; border: none; padding: 8px; z-index: 1001;
+        }
+        .hamburger span { display: block; width: 26px; height: 1px; background: var(--cream); transition: all 0.4s ease; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+        .mobile-menu {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--black); z-index: 999;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center; gap: 36px;
+            opacity: 0; pointer-events: none; transition: opacity 0.5s ease;
+        }
+        .mobile-menu.active { opacity: 1; pointer-events: all; }
+        .mobile-menu a {
+            font-family: var(--font-display); font-size: 2.4rem; font-weight: 300;
+            color: var(--cream); text-decoration: none; letter-spacing: 0.04em; transition: color 0.3s ease;
+        }
+        .mobile-menu a:hover { color: var(--gold); }
+
+        /* ── Page Hero ── */
+        .page-hero {
+            min-height: 52vh;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            padding: 160px 60px 80px;
+            text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .hero-lines {
+            position: absolute; inset: 0; pointer-events: none;
+            overflow: hidden;
+        }
+        .hero-lines::before {
+            content: '';
+            position: absolute; top: -2px; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,207,90,0.3), transparent);
+            animation: scan-down 8s linear infinite;
+        }
+        @keyframes scan-down {
+            0% { top: -2px; opacity: 0; }
+            5% { opacity: 1; }
+            95% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+        .hero-ring {
+            position: absolute;
+            width: 600px; height: 600px;
+            border: 1px solid rgba(255,207,90,0.04);
+            border-radius: 50%;
+            top: 50%; left: 50%; transform: translate(-50%, -50%);
+            animation: slow-spin 40s linear infinite;
+        }
+        .hero-ring-2 {
+            width: 800px; height: 800px;
+            border: 1px solid rgba(255,207,90,0.025);
+            animation-duration: 60s;
+            animation-direction: reverse;
+        }
+        @keyframes slow-spin {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to   { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        .hero-glow {
+            position: absolute; top: -60px; left: 50%; transform: translateX(-50%);
+            width: 700px; height: 500px;
+            background: radial-gradient(ellipse, rgba(255,207,90,0.07) 0%, transparent 65%);
+            pointer-events: none;
+            animation: glow-pulse 6s ease-in-out infinite;
+        }
+        @keyframes glow-pulse {
+            0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
+            50%       { opacity: 1;   transform: translateX(-50%) scale(1.08); }
+        }
+        .corner {
+            position: absolute; width: 50px; height: 50px;
+            border-color: rgba(255,207,90,0.2); border-style: solid;
+            transition: all 0.6s ease;
+        }
+        .corner.tl { top: 44px; left: 60px; border-width: 1px 0 0 1px; animation: corner-pulse 4s ease-in-out infinite; }
+        .corner.tr { top: 44px; right: 60px; border-width: 1px 1px 0 0; animation: corner-pulse 4s ease-in-out infinite 0.5s; }
+        .corner.bl { bottom: 44px; left: 60px; border-width: 0 0 1px 1px; animation: corner-pulse 4s ease-in-out infinite 1s; }
+        .corner.br { bottom: 44px; right: 60px; border-width: 0 1px 1px 0; animation: corner-pulse 4s ease-in-out infinite 1.5s; }
+        @keyframes corner-pulse {
+            0%, 100% { border-color: rgba(255,207,90,0.2); }
+            50%       { border-color: rgba(255,207,90,0.5); }
+        }
+        .page-eyebrow {
+            font-family: var(--font-label);
+            font-size: 0.68rem; font-weight: 600;
+            letter-spacing: 0.42em; text-transform: uppercase;
+            color: var(--gold); margin-bottom: 28px;
+            display: flex; align-items: center; justify-content: center; gap: 16px;
+            position: relative; z-index: 2;
+        }
+        .page-eyebrow::before, .page-eyebrow::after {
+            content: ''; width: 36px; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold));
+        }
+        .page-eyebrow::after { background: linear-gradient(90deg, var(--gold), transparent); }
+        .page-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 6.5vw, 5.5rem);
+            font-weight: 300; line-height: 1.08;
+            color: var(--cream); letter-spacing: -0.01em;
+            position: relative; z-index: 2;
+        }
+        .page-hero h1 em { font-style: italic; color: var(--gold-soft); }
+        .page-hero p {
+            margin-top: 24px; font-size: 1rem;
+            color: var(--muted); max-width: 500px;
+            margin-left: auto; margin-right: auto; line-height: 1.8;
+            position: relative; z-index: 2;
+        }
+
+        /* ── Section Dividers ── */
+        .section-divider {
+            display: flex; align-items: center; justify-content: center;
+            padding: 0 60px; height: 1px; position: relative;
+        }
+        .section-divider::before,
+        .section-divider::after {
+            content: ''; flex: 1; height: 1px;
+            background: linear-gradient(to right, transparent, rgba(255,207,90,0.2), transparent);
+        }
+        .section-divider span {
+            width: 5px; height: 5px; flex-shrink: 0;
+            border: 1px solid rgba(255,207,90,0.45);
+            transform: rotate(45deg); margin: 0 18px;
+        }
+
+        /* ── Sections ── */
+        .section { padding: 100px 60px; position: relative; }
+        .container { max-width: 860px; margin: 0 auto; }
+        .section-label {
+            font-family: var(--font-label);
+            font-size: 0.66rem; font-weight: 600;
+            letter-spacing: 0.38em; text-transform: uppercase;
+            color: var(--gold); margin-bottom: 16px;
+        }
+
+        /* ── Reveals ── */
+        .reveal { opacity: 0; transform: translateY(48px); transition: opacity 1.2s cubic-bezier(.19,1,.22,1), transform 1.2s cubic-bezier(.19,1,.22,1); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.36s}.d4{transition-delay:.48s}
+        .text-reveal { overflow: hidden; display: block; }
+        .text-reveal > span { display: block; transform: translateY(110%); transition: transform 1s cubic-bezier(.19,1,.22,1); }
+        .text-reveal.visible > span { transform: translateY(0); }
+
+        /* ── Privacy Content ── */
+        .privacy-content { max-width: 860px; margin: 0 auto; }
+        .privacy-content h2 {
+            font-family: var(--font-display);
+            font-size: 1.8rem; font-weight: 400;
+            color: var(--cream); margin-bottom: 20px;
+            margin-top: 56px;
+        }
+        .privacy-content h2:first-child { margin-top: 0; }
+        .privacy-content p {
+            font-size: 0.95rem; color: var(--text);
+            line-height: 1.85; margin-bottom: 16px;
+        }
+        .privacy-content ul {
+            list-style: none; margin-bottom: 16px; padding-left: 0;
+        }
+        .privacy-content ul li {
+            font-size: 0.95rem; color: var(--text);
+            line-height: 1.85; padding-left: 24px;
+            position: relative; margin-bottom: 8px;
+        }
+        .privacy-content ul li::before {
+            content: '';
+            position: absolute; left: 0; top: 11px;
+            width: 6px; height: 6px;
+            border: 1px solid var(--gold);
+            transform: rotate(45deg);
+        }
+        .privacy-content a {
+            color: var(--gold); text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .privacy-content a:hover { color: var(--gold-soft); }
+        .privacy-content .effective-date {
+            font-family: var(--font-label);
+            font-size: 0.72rem; font-weight: 600;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--muted); margin-bottom: 40px;
+        }
+        .gold-rule {
+            width: 48px; height: 1px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            margin: 28px 0;
+        }
+
+        /* ── Footer ── */
+        .footer {
+            background: var(--black-2);
+            padding: 80px 60px 40px;
+            border-top: 1px solid var(--border);
+        }
+        .footer-grid {
+            display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr;
+            gap: 60px; margin-bottom: 60px;
+        }
+        .footer-logo img { height: 56px; width: auto; opacity: 0.95; margin-bottom: 16px; }
+        .footer-tagline { font-size: 0.85rem; color: var(--muted); line-height: 1.7; max-width: 260px; }
+        .footer-col h4 {
+            font-family: var(--font-label); font-size: 0.64rem;
+            letter-spacing: 0.32em; text-transform: uppercase;
+            color: var(--gold); margin-bottom: 20px;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul a { font-size: 0.85rem; color: rgba(226,221,212,0.5); text-decoration: none; transition: color 0.3s ease; }
+        .footer-col ul a:hover { color: var(--cream); }
+        .footer-bottom {
+            border-top: 1px solid var(--border); padding-top: 28px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .footer-copy { font-size: 0.78rem; color: rgba(226,221,212,0.3); }
+        .footer-socials { display: flex; gap: 20px; }
+        .footer-socials a {
+            font-family: var(--font-label); font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+            color: rgba(226,221,212,0.35); text-decoration: none; transition: color 0.3s ease;
+        }
+        .footer-socials a:hover { color: var(--gold); }
+
+        /* ── Line-Art Mascot ── */
+        .mascot-wrap { display: flex; justify-content: center; position: relative; }
+        .mascot-svg { overflow: visible; filter: drop-shadow(0 0 20px rgba(255,207,90,0.15)); animation: mascot-bob 4s ease-in-out infinite; }
+        @keyframes mascot-bob { 0%,100% { transform: translateY(0) rotate(-1.5deg); } 50% { transform: translateY(-10px) rotate(2deg); } }
+        .m-eye { animation: m-blink 5.5s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 50%; }
+        .m-eye.er { animation-delay: 0.15s; }
+        @keyframes m-blink { 0%,85%,100%{transform:scaleY(1);} 90%{transform:scaleY(0.06);} }
+        .m-leaf { transform-box: fill-box; transform-origin: 50% 100%; }
+        .m-leaf.ll { animation: m-sway-l 3.6s ease-in-out infinite; }
+        .m-leaf.lr { animation: m-sway-r 3.6s ease-in-out infinite 0.5s; }
+        .m-top { transform-box: fill-box; transform-origin: 50% 100%; animation: m-sway-l 4.8s ease-in-out infinite 1s; }
+        @keyframes m-sway-l { 0%,100%{transform:rotate(0deg);} 50%{transform:rotate(-9deg);} }
+        @keyframes m-sway-r { 0%,100%{transform:rotate(0deg);} 50%{transform:rotate(9deg);} }
+        .m-mouth { opacity: 0; transition: opacity 0.55s ease; }
+        .m-mouth.active { opacity: 1; }
+        .m-sparkle { animation: sparkle-pop 2.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+        @keyframes sparkle-pop { 0%,100%{transform:scale(0);opacity:0;} 50%{transform:scale(1);opacity:0.8;} }
+
+        /* ── Custom Cursor + Mouse Effects ── */
+        @media (hover: hover) and (pointer: fine) {
+            body, a, button, input, textarea, select { cursor: none !important; }
+        }
+        .cursor-circle {
+            position: fixed; top: -100px; left: -100px;
+            width: 20px; height: 20px;
+            border: 1.5px solid rgba(255,207,90,0.6);
+            border-radius: 50%;
+            pointer-events: none; z-index: 10001;
+            transform: translate(-50%, -50%);
+            transition: width 0.25s cubic-bezier(.19,1,.22,1), height 0.25s cubic-bezier(.19,1,.22,1), border-color 0.2s, background 0.2s, opacity 0.2s;
+            mix-blend-mode: exclusion;
+            background: transparent;
+        }
+        .cursor-circle.hover {
+            width: 56px; height: 56px;
+            background: rgba(255,207,90,0.08);
+            border-color: rgba(255,207,90,0.35);
+        }
+        .cursor-circle.click { transform: translate(-50%,-50%) scale(0.8); }
+        .mouse-glow {
+            position: fixed;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(255,207,90,0.03) 0%, transparent 60%);
+            border-radius: 50%;
+            pointer-events: none; z-index: 0; will-change: transform;
+            transform: translate(-50%, -50%);
+        }
+        .scroll-progress {
+            position: fixed; top: 0; left: 0; height: 2px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+            z-index: 10002; width: 0%;
+        }
+        @media (max-width: 768px), (hover: none) {
+            .cursor-circle, .mouse-glow { display: none !important; }
+            body, a, button { cursor: auto !important; }
+        }
+
+        /* ── Floating Companion (Leaf Buddy) ── */
+        .companion {
+            position: fixed;
+            bottom: 28px; right: 28px;
+            width: 72px; height: 86px;
+            z-index: 9998;
+            pointer-events: none;
+            transition: transform 0.5s cubic-bezier(.18,.89,.32,1.28), opacity 0.5s ease;
+            filter: drop-shadow(0 4px 20px rgba(255,207,90,0.1));
+        }
+        .companion svg { overflow: visible; width: 100%; height: 100%; }
+        .companion.hide { opacity: 0; transform: scale(0.5) translateY(20px); }
+        .companion .morph-item { opacity: 0; transition: opacity 0.55s ease, transform 0.55s ease; transform: scale(0.7) translateY(4px); }
+        .companion .morph-item.active { opacity: 1; transform: scale(1) translateY(0); }
+        @keyframes comp-float { 0%,100%{transform:translateY(0) rotate(-0.5deg);} 50%{transform:translateY(-7px) rotate(0.8deg);} }
+        @keyframes comp-wave { 0%,100%{transform:rotate(0);} 25%{transform:rotate(10deg);} 75%{transform:rotate(-5deg);} }
+        .comp-wave { animation: comp-wave 2.5s ease-in-out infinite; transform-box: fill-box; transform-origin: 0% 50%; }
+        .companion { pointer-events: auto !important; cursor: pointer; }
+        .companion:hover { transform: scale(1.08); }
+        .companion:active { transform: scale(0.94); }
+        .comp-bubble { position: fixed; bottom: 126px; right: 16px; max-width: 192px; background: rgba(20,28,18,0.88); border: 1px solid rgba(255,207,90,0.38); backdrop-filter: blur(14px); border-radius: 14px 14px 4px 14px; padding: 10px 13px; font-size: 0.775rem; color: rgba(240,236,222,0.92); line-height: 1.45; z-index: 9997; pointer-events: none; opacity: 0; transform: translateY(6px) scale(0.95); transition: opacity 0.32s ease, transform 0.32s ease; }
+        .comp-bubble.show { opacity: 1; transform: translateY(0) scale(1); }
+        .comp-bubble::after { content: ''; position: absolute; bottom: -7px; right: 20px; width: 12px; height: 12px; background: rgba(20,28,18,0.88); border-right: 1px solid rgba(255,207,90,0.38); border-bottom: 1px solid rgba(255,207,90,0.38); transform: rotate(45deg); }
+
+        /* ── Responsive ── */
+        @media (max-width: 1024px) {
+            .nav { padding: 0 32px; }
+            .section { padding: 80px 32px; }
+            .page-hero { padding: 150px 32px 60px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+        }
+        @media (max-width: 768px) {
+            .nav { padding: 0 24px; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .section { padding: 64px 24px; }
+            .page-hero { padding: 130px 24px 50px; }
+            .corner { display: none; }
+            .footer { padding: 60px 24px 32px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="grain"></div>
+
+    <!-- Nav -->
+    <nav class="nav" id="nav">
+        <a href="index.html" class="nav-logo">
+            <img src="New+WayofMint+Logo%20(1).webp" alt="WayofMint">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="services.html" class="nav-link">Services</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Get in Touch</a>
+    </div>
+
+    <main>
+
+    <!-- Hero -->
+    <header class="page-hero">
+        <div class="hero-lines">
+            <div class="hero-ring"></div>
+            <div class="hero-ring hero-ring-2"></div>
+        </div>
+        <div class="hero-glow"></div>
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+        <p class="page-eyebrow">Legal</p>
+        <h1>
+            <span class="text-reveal d1"><span>Privacy <em>Policy</em></span></span>
+        </h1>
+        <p>How WayofMint collects, uses, and protects information in connection with our services and advertising platform integrations.</p>
+    </header>
+
+    <div class="section-divider"><span></span></div>
+
+    <!-- Privacy Content -->
+    <section class="section">
+        <div class="privacy-content">
+            <p class="effective-date reveal">Effective Date: March 12, 2026</p>
+
+            <div class="reveal d1">
+                <p>WayofMint ("we," "us," or "our") is a creative agency providing brand strategy, web design, digital advertising, and social media management services. This Privacy Policy explains how we handle information in connection with our services, including our use of the Meta (Facebook) Marketing API through our application, "WayofMint Automation."</p>
+            </div>
+
+            <div class="gold-rule reveal d2"></div>
+
+            <div class="reveal">
+                <h2>Information We Collect</h2>
+                <p>WayofMint accesses the Meta Marketing API to manage advertising campaigns on behalf of our agency clients. The information we access includes:</p>
+                <ul>
+                    <li>Ad account data (campaign names, budgets, schedules, and performance metrics)</li>
+                    <li>Advertising insights and analytics (impressions, reach, clicks, conversions)</li>
+                    <li>Ad creative assets (images, copy, and targeting configurations)</li>
+                    <li>Business account information necessary for campaign management</li>
+                </ul>
+                <p>We do not collect personal data from end users who view or interact with advertisements managed through our platform. We do not access personal profiles, friend lists, private messages, or any personal information of individual Facebook or Instagram users.</p>
+            </div>
+
+            <div class="reveal">
+                <h2>How We Use Information</h2>
+                <p>All data accessed through the Meta Marketing API is used strictly for the purpose of managing and optimizing advertising campaigns for our agency clients. Specifically, we use this information to:</p>
+                <ul>
+                    <li>Create, manage, and monitor advertising campaigns</li>
+                    <li>Analyze campaign performance and generate reports for clients</li>
+                    <li>Optimize ad spend and targeting to improve campaign results</li>
+                    <li>Provide strategic advertising recommendations to our clients</li>
+                </ul>
+            </div>
+
+            <div class="reveal">
+                <h2>Data Sharing</h2>
+                <p>We do not sell, rent, trade, or otherwise share any data obtained through the Meta Marketing API with third parties. Campaign data and performance information is only shared with the specific client whose ad account the data pertains to.</p>
+                <p>We may disclose information if required by law, regulation, or valid legal process, or if necessary to protect the rights, property, or safety of WayofMint, our clients, or others.</p>
+            </div>
+
+            <div class="reveal">
+                <h2>Data Security</h2>
+                <p>We take appropriate technical and organizational measures to protect the information we access and process. These measures include:</p>
+                <ul>
+                    <li>Secure storage of API credentials and access tokens</li>
+                    <li>Restricted access to advertising accounts on a need-to-know basis</li>
+                    <li>Regular review of access permissions and security practices</li>
+                    <li>Use of encrypted connections for all API communications</li>
+                </ul>
+                <p>While no method of electronic transmission or storage is completely secure, we strive to use commercially acceptable means to protect all information under our control.</p>
+            </div>
+
+            <div class="reveal">
+                <h2>Data Retention</h2>
+                <p>We retain campaign data and performance metrics only for as long as necessary to provide our services to the respective client. When a client relationship ends, we delete or anonymize all associated advertising data within a reasonable timeframe, unless retention is required by law.</p>
+            </div>
+
+            <div class="reveal">
+                <h2>Your Rights</h2>
+                <p>If you are a client of WayofMint, you have the right to:</p>
+                <ul>
+                    <li>Request access to the advertising data we manage on your behalf</li>
+                    <li>Request correction of inaccurate data in your advertising accounts</li>
+                    <li>Request deletion of your data upon termination of our services</li>
+                    <li>Revoke our access to your Meta advertising accounts at any time</li>
+                </ul>
+                <p>If you believe your personal data has been processed through our advertising services and wish to exercise any data protection rights, please contact us using the information below.</p>
+            </div>
+
+            <div class="reveal">
+                <h2>Third-Party Platforms</h2>
+                <p>Our services integrate with Meta (Facebook/Instagram) and other advertising platforms. Your use of these platforms is governed by their respective privacy policies. We encourage you to review the privacy policies of any third-party platforms connected to our services.</p>
+            </div>
+
+            <div class="reveal">
+                <h2>Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy or our data practices, please contact us at:</p>
+                <p style="margin-top: 12px;">
+                    <strong style="color: var(--cream);">WayofMint</strong><br>
+                    Email: <a href="mailto:armani@wayofmint.com">armani@wayofmint.com</a><br>
+                    Phone: <a href="tel:+13059727159">(305) 972-7159</a>
+                </p>
+            </div>
+
+            <div class="reveal">
+                <h2>Changes to This Policy</h2>
+                <p>We may update this Privacy Policy from time to time to reflect changes in our practices or applicable laws. Any changes will be posted on this page with an updated effective date. We encourage you to review this page periodically for the latest information on our privacy practices.</p>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-logo"><img src="New+WayofMint+Logo%20(1).webp" alt="WayofMint"></div>
+                <p class="footer-tagline">A creative agency crafting brands that resonate. Strategy, design, and digital marketing for ambitious businesses.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services.html">Social Media</a></li>
+                    <li><a href="services.html">Web Design</a></li>
+                    <li><a href="services.html">Advertising</a></li>
+                    <li><a href="services.html">Branding</a></li>
+                    <li><a href="services.html">Content</a></li>
+                    <li><a href="services.html">SEO</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:armani@wayofmint.com">armani@wayofmint.com</a></li>
+                    <li><a href="tel:+13059727159">(305) 972-7159</a></li>
+                    <li><a href="contact.html">Request a Quote</a></li>
+                    <li style="margin-top:6px; color:rgba(226,221,212,0.5); font-size:0.85rem;">Metro Detroit &amp; Miami · Serving clients nationally</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 WayofMint. All rights reserved.</p>
+            <div class="footer-socials">
+                <a href="https://instagram.com/wayofmint" aria-label="Instagram" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01" stroke-width="2"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Companion Mascot -->
+    <div class="companion" id="companion">
+        <svg viewBox="0 0 100 120" fill="none" style="animation:comp-float 4.5s ease-in-out infinite">
+            <path d="M50 16 Q22 30 20 60 Q18 85 50 100 Q82 85 80 60 Q78 30 50 16z"
+                  stroke="#FFCF5A" stroke-width="1.3" fill="rgba(255,207,90,0.04)" stroke-linejoin="round"/>
+            <path d="M50 28 L50 78" stroke="rgba(255,207,90,0.12)" stroke-width="0.6"/>
+            <path d="M50 42 Q38 38 30 44" stroke="rgba(255,207,90,0.1)" stroke-width="0.5" stroke-linecap="round"/>
+            <path d="M50 42 Q62 38 70 44" stroke="rgba(255,207,90,0.1)" stroke-width="0.5" stroke-linecap="round"/>
+            <path d="M50 56 Q36 52 28 58" stroke="rgba(255,207,90,0.08)" stroke-width="0.4" stroke-linecap="round"/>
+            <path d="M50 56 Q64 52 72 58" stroke="rgba(255,207,90,0.08)" stroke-width="0.4" stroke-linecap="round"/>
+            <path d="M50 16 Q48 8 44 4" stroke="#FFCF5A" stroke-width="1" stroke-linecap="round"/>
+            <path d="M50 16 Q53 10 58 8" stroke="rgba(255,207,90,0.5)" stroke-width="0.7" stroke-linecap="round"/>
+            <circle class="m-eye el" cx="38" cy="50" r="3.5" fill="#FFCF5A"/>
+            <circle class="m-eye er" cx="62" cy="50" r="3.5" fill="#FFCF5A"/>
+            <circle class="comp-pupil" cx="39.5" cy="48.5" r="1.2" fill="rgba(43,55,37,0.6)"/>
+            <circle class="comp-pupil" cx="63.5" cy="48.5" r="1.2" fill="rgba(43,55,37,0.6)"/>
+            <path class="m-mouth m1 active" d="M42 62 Q50 70 58 62" stroke="#FFCF5A" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+            <path class="m-mouth m2" d="M40 61 Q50 73 60 61" stroke="#FFCF5A" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+            <circle class="m-mouth m3" cx="50" cy="64" r="3.5" stroke="#FFCF5A" stroke-width="1" fill="none"/>
+            <circle cx="30" cy="58" r="4" fill="rgba(255,207,90,0.08)"/>
+            <circle cx="70" cy="58" r="4" fill="rgba(255,207,90,0.08)"/>
+            <path d="M22 60 Q14 64 12 72" stroke="#FFCF5A" stroke-width="1" stroke-linecap="round" fill="none"/>
+            <circle cx="12" cy="73" r="2" stroke="#FFCF5A" stroke-width="0.7" fill="rgba(255,207,90,0.06)"/>
+            <g class="comp-wave">
+                <path d="M78 60 Q86 56 88 48" stroke="#FFCF5A" stroke-width="1" stroke-linecap="round" fill="none"/>
+                <circle cx="88" cy="47" r="2" stroke="#FFCF5A" stroke-width="0.7" fill="rgba(255,207,90,0.06)"/>
+            </g>
+            <g class="morph-item" data-morph="social">
+                <path d="M12 20 Q12 10 22 10 L36 10 Q42 10 42 20 L42 28 Q42 34 36 34 L26 34 L20 40 L20 34 L22 34 Q12 34 12 28z" stroke="#FFCF5A" stroke-width="0.8" fill="rgba(255,207,90,0.06)"/>
+                <path d="M23 20 Q23 17 25.5 17 Q27 17 27 20 Q27 17 28.5 17 Q31 17 31 20 Q31 24 27 27 Q23 24 23 20z" fill="rgba(255,207,90,0.35)"/>
+            </g>
+            <g class="morph-item" data-morph="web">
+                <text x="10" y="30" font-size="22" fill="rgba(255,207,90,0.5)" font-family="monospace" font-weight="300">&lt;/&gt;</text>
+            </g>
+            <g class="morph-item" data-morph="ads">
+                <polyline points="10,36 18,26 26,30 36,14" stroke="#FFCF5A" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <polygon points="34,10 40,12 36,16" fill="#FFCF5A"/>
+            </g>
+            <g class="morph-item" data-morph="brand">
+                <path d="M14 38 L30 14" stroke="#FFCF5A" stroke-width="1" stroke-linecap="round"/>
+                <path d="M28 18 Q32 12 36 14 Q38 16 34 20 z" stroke="#FFCF5A" stroke-width="0.7" fill="rgba(255,207,90,0.15)"/>
+                <circle cx="14" cy="38" r="3" stroke="#FFCF5A" stroke-width="0.7" fill="rgba(255,207,90,0.1)"/>
+            </g>
+            <g class="morph-item" data-morph="content">
+                <rect x="10" y="16" width="26" height="18" rx="3" stroke="#FFCF5A" stroke-width="0.9" fill="rgba(255,207,90,0.05)"/>
+                <circle cx="23" cy="25" r="5" stroke="#FFCF5A" stroke-width="0.7" fill="none"/>
+                <circle cx="23" cy="25" r="2" fill="rgba(255,207,90,0.2)"/>
+                <rect x="18" y="14" width="8" height="4" rx="1" stroke="#FFCF5A" stroke-width="0.6" fill="rgba(255,207,90,0.05)"/>
+            </g>
+            <g class="morph-item" data-morph="video">
+                <circle cx="24" cy="24" r="12" stroke="#FFCF5A" stroke-width="0.9" fill="rgba(255,207,90,0.05)"/>
+                <polygon points="20,18 20,30 30,24" stroke="#FFCF5A" stroke-width="0.7" fill="rgba(255,207,90,0.2)"/>
+            </g>
+            <g class="morph-item" data-morph="seo">
+                <circle cx="22" cy="22" r="9" stroke="#FFCF5A" stroke-width="1" fill="none"/>
+                <line x1="28" y1="28" x2="38" y2="38" stroke="#FFCF5A" stroke-width="1.2" stroke-linecap="round"/>
+            </g>
+            <g class="morph-item" data-morph="love">
+                <path d="M24 10 L26 20 L36 22 L26 24 L24 34 L22 24 L12 22 L22 20z" stroke="#FFCF5A" stroke-width="0.8" fill="rgba(255,207,90,0.12)"/>
+            </g>
+            <text class="m-sparkle" x="6" y="44" font-size="6" fill="#FFCF5A" style="animation-delay:0s">&#10022;</text>
+            <text class="m-sparkle" x="86" y="30" font-size="5" fill="#FFCF5A" style="animation-delay:1.4s">&#10022;</text>
+        </svg>
+    </div>
+
+    <script>
+        const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+        if (!isTouch) {
+            const circle = document.createElement('div');
+            const glow = document.createElement('div');
+            const progress = document.createElement('div');
+            circle.className = 'cursor-circle';
+            glow.className = 'mouse-glow';
+            progress.className = 'scroll-progress';
+            document.body.appendChild(circle);
+            document.body.appendChild(glow);
+            document.body.appendChild(progress);
+
+            let mx = -100, my = -100;
+            let cxC = -100, cyC = -100, gxC = -100, gyC = -100;
+            document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
+
+            (function cursorLoop() {
+                cxC += (mx - cxC) * 0.3;
+                cyC += (my - cyC) * 0.3;
+                gxC += (mx - gxC) * 0.04;
+                gyC += (my - gyC) * 0.04;
+                circle.style.left = cxC + 'px'; circle.style.top = cyC + 'px';
+                glow.style.left = gxC + 'px'; glow.style.top = gyC + 'px';
+                requestAnimationFrame(cursorLoop);
+            })();
+
+            document.querySelectorAll('a, button, input, textarea, select').forEach(el => {
+                el.addEventListener('mouseenter', () => { circle.classList.add('hover'); });
+                el.addEventListener('mouseleave', () => { circle.classList.remove('hover'); });
+            });
+            document.addEventListener('mousedown', () => circle.classList.add('click'));
+            document.addEventListener('mouseup', () => circle.classList.remove('click'));
+
+            window.addEventListener('scroll', () => {
+                const h = document.documentElement.scrollHeight - window.innerHeight;
+                if (h > 0) progress.style.width = (scrollY / h * 100) + '%';
+            }, { passive: true });
+
+            // Eye tracking
+            document.addEventListener('mousemove', e => {
+                document.querySelectorAll('.companion svg').forEach(svg => {
+                    const r = svg.getBoundingClientRect();
+                    const ecx = r.left + r.width / 2;
+                    const ecy = r.top + r.height * 0.45;
+                    const angle = Math.atan2(e.clientY - ecy, e.clientX - ecx);
+                    const dist = Math.min(Math.hypot(e.clientX - ecx, e.clientY - ecy) / 350, 1);
+                    const epx = Math.cos(angle) * dist * 2.2;
+                    const epy = Math.sin(angle) * dist * 1.6;
+                    svg.querySelectorAll('.comp-pupil').forEach(c => {
+                        if (!c.dataset.bx) { c.dataset.bx = c.getAttribute('cx'); c.dataset.by = c.getAttribute('cy'); }
+                        c.setAttribute('cx', parseFloat(c.dataset.bx) + epx);
+                        c.setAttribute('cy', parseFloat(c.dataset.by) + epy);
+                    });
+                });
+            }, { passive: true });
+        }
+
+        // Companion mouth cycling
+        (function(){
+            const comp = document.getElementById('companion');
+            if (!comp) return;
+            const compMouths = comp.querySelectorAll('.m-mouth');
+            if (compMouths.length) {
+                let mIdx = 0;
+                const mDelays = [3200, 1800, 2400];
+                function nextMouth() {
+                    compMouths.forEach(m => m.classList.remove('active'));
+                    mIdx = (mIdx + 1) % compMouths.length;
+                    compMouths[mIdx].classList.add('active');
+                    setTimeout(nextMouth, mDelays[mIdx]);
+                }
+                setTimeout(nextMouth, mDelays[0]);
+            }
+        })();
+
+        // Scroll reveal
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+        }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+        document.querySelectorAll('.reveal, .text-reveal').forEach(el => obs.observe(el));
+
+        // Nav scroll
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60), { passive: true });
+
+        // Mobile menu
+        const hb = document.getElementById('hamburger');
+        const mm = document.getElementById('mobileMenu');
+        hb.addEventListener('click', () => {
+            hb.classList.toggle('active'); mm.classList.toggle('active');
+            document.body.style.overflow = mm.classList.contains('active') ? 'hidden' : '';
+        });
+        mm.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            hb.classList.remove('active'); mm.classList.remove('active'); document.body.style.overflow = '';
+        }));
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && mm.classList.contains('active')) {
+                hb.classList.remove('active'); mm.classList.remove('active'); document.body.style.overflow = '';
+            }
+        });
+    </script>
+    <script>
+    (function(){
+        const comp = document.getElementById('companion');
+        if (!comp) return;
+        const bubbleMsgs = ["Ready to grow your brand? Let's talk.","Your next client is one campaign away.","Great brands aren't built by accident.","Strategy. Design. Results.","Let's make your digital presence unforgettable.","From Detroit to Miami \u2014 we bring brands to life.","Is your brand telling the right story?","Content that converts. Brands that endure.","Your competitors are marketing right now.","Let's build something people remember."];
+        const bubble = document.createElement('div');
+        bubble.className = 'comp-bubble';
+        document.body.appendChild(bubble);
+        let bIdx = 0, bHideTimer;
+
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        let leafyAudioCtx;
+        function getAudioCtx() { if (!leafyAudioCtx) leafyAudioCtx = new AudioCtx(); return leafyAudioCtx; }
+
+        function leafyClickSound() {
+            try {
+                const ctx = getAudioCtx(), t = ctx.currentTime;
+                [0, 0.06, 0.12].forEach((d, i) => {
+                    const o = ctx.createOscillator(), g = ctx.createGain();
+                    o.type = i === 2 ? 'sine' : 'triangle';
+                    o.frequency.setValueAtTime([784, 988, 1318][i], t + d);
+                    g.gain.setValueAtTime(0.13, t + d); g.gain.exponentialRampToValueAtTime(0.001, t + d + 0.1);
+                    o.connect(g); g.connect(ctx.destination); o.start(t + d); o.stop(t + d + 0.1);
+                });
+            } catch(e) {}
+        }
+
+        function isLeafyVisible() { return !comp.classList.contains('hide'); }
+
+        function showBubble() {
+            bubble.textContent = bubbleMsgs[bIdx % bubbleMsgs.length];
+            bIdx++;
+            bubble.classList.add('show');
+            clearTimeout(bHideTimer);
+            bHideTimer = setTimeout(() => bubble.classList.remove('show'), 5500);
+        }
+
+        setTimeout(() => { showBubble(); setInterval(showBubble, 30000); }, 10000);
+
+        const compVisObs = new MutationObserver(() => {
+            if (comp.classList.contains('hide')) {
+                bubble.classList.remove('show');
+                clearTimeout(bHideTimer);
+            }
+        });
+        compVisObs.observe(comp, { attributes: true, attributeFilter: ['class'] });
+        const mouths = comp.querySelectorAll('.m-mouth');
+        comp.addEventListener('click', () => {
+            if (!isLeafyVisible()) return;
+            leafyClickSound();
+            mouths.forEach(m => m.classList.remove('active'));
+            comp.querySelector('.m-mouth.m2')?.classList.add('active');
+            bubble.textContent = "Let's talk! Taking you there now\u2026";
+            bubble.classList.add('show'); clearTimeout(bHideTimer);
+            setTimeout(() => { window.location.href = 'contact.html'; }, 800);
+        });
+    })();
+    </script>
+</body>
+</html>
