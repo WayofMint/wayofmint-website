@@ -1063,5 +1063,49 @@
         });
     })();
     </script>
+
+    <!-- Google Ads Conversion Tracking -->
+    <script>
+    // 1. Contact Form — intercept native POST, send via fetch, fire conversion
+    (function(){
+        const form = document.getElementById('contactForm');
+        if (!form) return;
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('submitText');
+            btnText.textContent = 'Sending...';
+            btn.disabled = true;
+
+            const formData = new FormData(form);
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            }).then(function() {
+                gtag('event', 'conversion', {'send_to': 'AW-17510757488/mMqJCIKwr4wcEPDo451B'});
+                form.style.display = 'none';
+                document.getElementById('formSuccess').style.display = 'block';
+            }).catch(function() {
+                gtag('event', 'conversion', {'send_to': 'AW-17510757488/mMqJCIKwr4wcEPDo451B'});
+                form.style.display = 'none';
+                document.getElementById('formSuccess').style.display = 'block';
+            });
+        });
+
+        // 2. Phone call clicks
+        document.querySelectorAll('a[href^="tel:"]').forEach(function(el) {
+            el.addEventListener('click', function() {
+                gtag('event', 'conversion', {'send_to': 'AW-17510757488/zsTLCIiwr4wcEPDo451B'});
+            });
+        });
+
+        // 3. Email clicks
+        document.querySelectorAll('a[href^="mailto:"]').forEach(function(el) {
+            el.addEventListener('click', function() {
+                gtag('event', 'conversion', {'send_to': 'AW-17510757488/exc4CIuwr4wcEPDo451B'});
+            });
+        });
+    })();
+    </script>
 </body>
 </html>

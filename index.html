@@ -2326,12 +2326,29 @@
                 });
             } catch(_) {}
 
+            // Fire Google Ads conversion for lead popup
+            gtag('event', 'conversion', {'send_to': 'AW-17510757488/4tGWCIWwr4wcEPDo451B'});
+
             formWrap.style.display = 'none';
             success.style.display = 'block';
             localStorage.setItem(STORAGE_KEY, '1');
             setTimeout(closePopup, 3200);
         });
     })();
+    </script>
+
+    <!-- Phone & Email Click Conversion Tracking -->
+    <script>
+    document.querySelectorAll('a[href^="tel:"]').forEach(function(el) {
+        el.addEventListener('click', function() {
+            gtag('event', 'conversion', {'send_to': 'AW-17510757488/zsTLCIiwr4wcEPDo451B'});
+        });
+    });
+    document.querySelectorAll('a[href^="mailto:"]').forEach(function(el) {
+        el.addEventListener('click', function() {
+            gtag('event', 'conversion', {'send_to': 'AW-17510757488/exc4CIuwr4wcEPDo451B'});
+        });
+    });
     </script>
 </body>
 </html>
