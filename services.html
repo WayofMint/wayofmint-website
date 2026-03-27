@@ -37,10 +37,63 @@
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      "provider": {"@type": "MarketingAgency", "name": "WayofMint", "url": "https://wayofmint.com"},
-      "serviceType": ["Social Media Management", "Web Design & Development", "Digital Advertising", "Brand Identity & Strategy", "Content Creation", "SEO & Analytics", "AI Consultation & Implementation"],
-      "areaServed": "US",
-      "description": "Full-suite creative services and AI consultation including social media management, web design, digital advertising, brand strategy, content creation, SEO, and AI implementation."
+      "provider": {
+        "@type": "MarketingAgency",
+        "name": "WayofMint",
+        "url": "https://wayofmint.com",
+        "telephone": "+13059727159",
+        "email": "armani@wayofmint.com"
+      },
+      "serviceType": ["Social Media Management", "Web Design & Development", "Digital Advertising", "Brand Identity & Strategy", "Content Creation", "SEO & Analytics", "AI Consultation & Implementation", "Videography", "Drone Production", "Event Coverage"],
+      "areaServed": [
+        {"@type": "City", "name": "Detroit"},
+        {"@type": "City", "name": "Miami"},
+        {"@type": "Country", "name": "United States"}
+      ],
+      "description": "Full-suite creative services and AI consultation including social media management, web design, digital advertising, brand strategy, content creation, SEO, videography, and AI implementation."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://wayofmint.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://wayofmint.com/services"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does WayofMint's social media management include?",
+          "acceptedAnswer": {"@type": "Answer", "text": "WayofMint's social media management includes strategy development, content creation, daily posting and scheduling, community engagement, performance analytics, and monthly reporting across platforms like Instagram, Facebook, LinkedIn, and TikTok."}
+        },
+        {
+          "@type": "Question",
+          "name": "Does WayofMint build custom websites or use templates?",
+          "acceptedAnswer": {"@type": "Answer", "text": "WayofMint builds fully custom websites from scratch — responsive, fast-loading, SEO-optimized, and designed to match your brand identity. No cookie-cutter templates."}
+        },
+        {
+          "@type": "Question",
+          "name": "What kind of video production does WayofMint offer?",
+          "acceptedAnswer": {"@type": "Answer", "text": "WayofMint offers cinematic videography including corporate event coverage, brand films, interview-style content, promotional reels, and FAA-licensed drone footage. Post-production includes editing, color grading, motion graphics, and multi-format delivery."}
+        },
+        {
+          "@type": "Question",
+          "name": "Does WayofMint manage Google Ads and Meta Ads?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Yes. WayofMint manages paid advertising campaigns on Google (Search, Display, YouTube) and Meta (Facebook, Instagram) with full creative production, audience targeting, A/B testing, and transparent performance reporting."}
+        },
+        {
+          "@type": "Question",
+          "name": "What is WayofMint's AI consultation service?",
+          "acceptedAnswer": {"@type": "Answer", "text": "WayofMint helps businesses implement AI tools for workflow automation, content generation, customer service chatbots, data analysis, and strategic AI integration. We assess your operations and build custom AI solutions that save time and improve results."}
+        }
+      ]
     }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,7 +101,8 @@
     <link rel="preconnect" href="https://streamable.com" crossorigin>
     <link rel="dns-prefetch" href="https://streamable.com">
     <link rel="dns-prefetch" href="https://cdn-cf-east.streamable.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
@@ -359,7 +413,7 @@
 
     <!-- Nav -->
     <nav class="nav" id="nav">
-        <a href="/" class="nav-logo"><img src="New+WayofMint+Logo%20(1).webp" alt="WayofMint"></a>
+        <a href="/" class="nav-logo"><img src="New+WayofMint+Logo%20(1).webp" alt="WayofMint" width="160" height="160" fetchpriority="high"></a>
         <ul class="nav-links">
             <li><a href="/" class="nav-link">Home</a></li>
             <li><a href="/services" class="nav-link active">Services</a></li>

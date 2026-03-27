@@ -40,18 +40,56 @@
         "@type": "MarketingAgency",
         "name": "WayofMint",
         "url": "https://wayofmint.com",
-        "founder": {"@type": "Person", "name": "Armani Rodriguez"},
+        "founder": {"@type": "Person", "name": "Armani Rodriguez", "jobTitle": "CEO & Founder"},
+        "foundingDate": "2022",
+        "numberOfEmployees": {"@type": "QuantitativeValue", "value": "1-10"},
         "foundingLocation": [
           {"@type": "Place", "address": {"@type": "PostalAddress", "addressLocality": "Detroit", "addressRegion": "MI"}},
           {"@type": "Place", "address": {"@type": "PostalAddress", "addressLocality": "Miami", "addressRegion": "FL"}}
         ],
+        "knowsAbout": ["Brand Strategy", "Videography", "Web Design", "Digital Advertising", "Social Media Management", "AI Consultation"],
+        "slogan": "Marketing That Shifts With You",
         "sameAs": ["https://instagram.com/wayofmint"]
       }
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://wayofmint.com/"},
+        {"@type": "ListItem", "position": 2, "name": "About", "item": "https://wayofmint.com/about"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Who founded WayofMint?",
+          "acceptedAnswer": {"@type": "Answer", "text": "WayofMint was founded by Armani Rodriguez, a creative strategist based in Metro Detroit and Miami. The agency was built on the belief that great marketing is about resonance, not just exposure."}
+        },
+        {
+          "@type": "Question",
+          "name": "What makes WayofMint different from other marketing agencies?",
+          "acceptedAnswer": {"@type": "Answer", "text": "WayofMint offers senior-level attention on every account (no hand-offs to junior staff), integrated strategy across brand, design, content and media, data-backed creativity, and agile execution without bureaucratic delays. They work with a selective roster of clients to ensure depth of attention."}
+        },
+        {
+          "@type": "Question",
+          "name": "Does WayofMint work with clients outside of Detroit and Miami?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Yes. While WayofMint is rooted in Metro Detroit and Miami, they serve clients nationally and internationally. Their digital services — web design, advertising, social media, and AI consultation — are fully remote-capable."}
+        }
+      ]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -898,7 +936,7 @@
     <!-- Nav -->
     <nav class="nav" id="nav">
         <a href="/" class="nav-logo">
-            <img src="New+WayofMint+Logo%20(1).webp" alt="WayofMint">
+            <img src="New+WayofMint+Logo%20(1).webp" alt="WayofMint" width="160" height="160" fetchpriority="high">
         </a>
         <ul class="nav-links">
             <li><a href="/" class="nav-link">Home</a></li>
@@ -947,7 +985,7 @@
             <div class="story-grid">
                 <div class="story-visual reveal-left">
                     <div class="story-image-box">
-                        <img src="Armani.jpg" alt="Armani Rodriguez — WayofMint" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;position:absolute;inset:0;">
+                        <img src="Armani.webp" alt="Armani Rodriguez — WayofMint" loading="lazy" decoding="async" width="400" height="500" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;position:absolute;inset:0;">
                         <div class="story-corner tl"></div>
                         <div class="story-corner br"></div>
                     </div>
