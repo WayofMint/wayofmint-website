@@ -188,14 +188,25 @@
         .video-showcase { padding: 140px 60px; position: relative; overflow: hidden; contain: layout style; }
         .video-showcase-inner { max-width: 1400px; margin: 0 auto; }
         .video-reel { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 80px; }
-        .reel-item { overflow: visible; transition: transform 0.4s ease; }
+        .reel-item { overflow: visible; cursor: pointer; transition: transform 0.4s ease; }
         .reel-item:nth-child(odd) { transform: none; }
         .reel-item:nth-child(even) { transform: none; }
         .reel-item:nth-child(3n) { transform: none; }
         .reel-item:nth-child(4n+1) { transform: none; }
         .reel-frame { aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--border); position: relative; background: var(--black-2); }
         .reel-frame video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+        .reel-frame::after { content: '▶'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 1.8rem; color: var(--gold); text-shadow: 0 2px 12px rgba(0,0,0,0.5); z-index: 2; pointer-events: none; opacity: 0; transition: opacity 0.3s ease; }
+        .reel-item:hover .reel-frame::after { opacity: 1; }
         .reel-item:hover .reel-frame { border-color: rgba(255,207,90,0.3); }
+
+        /* ── Video Lightbox ── */
+        .video-lightbox { position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.92); backdrop-filter: blur(20px); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
+        .video-lightbox.active { opacity: 1; pointer-events: all; }
+        .video-lightbox-inner { width: 90vw; max-width: 1000px; aspect-ratio: 16/9; position: relative; }
+        .video-lightbox-inner video { width: 100%; height: 100%; border: none; border-radius: 4px; background: #000; }
+        .lightbox-close { position: absolute; top: -48px; right: 0; background: none; border: none; color: var(--gold); font-size: 1.6rem; cursor: pointer; font-family: var(--font-display); letter-spacing: 0.1em; transition: opacity 0.3s; }
+        .lightbox-close:hover { opacity: 0.6; }
+        .lightbox-title { position: absolute; bottom: -40px; left: 0; font-family: var(--font-label); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
         .reel-label { display: block; font-family: var(--font-label); font-size: 0.58rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted); margin-top: 12px; text-align: center; }
         .reel-item:hover { z-index: 10; transform: scale(1.03) !important; }
 
@@ -490,97 +501,97 @@
             <div class="label reveal">Our Work</div>
             <h2 class="display-title reveal d1">See it in <em>action</em></h2>
             <div class="video-reel">
-                <div class="reel-item reveal">
+                <div class="reel-item reveal" data-video="f37rbx" data-title="Interview with Dodge CEO">
                     <div class="reel-frame"><video autoplay muted loop playsinline preload="metadata" poster="assets/film/f37rbx.jpg" aria-label="Interview with Dodge CEO">
                         <source src="assets/film/f37rbx.mp4" type="video/mp4">
                     </video></div>
                     <span class="reel-label">Interview with Dodge CEO</span>
                 </div>
-                <div class="reel-item reveal">
+                <div class="reel-item reveal" data-video="o7dkt7" data-title="Stellantis Matchmaker">
                     <div class="reel-frame"><video autoplay muted loop playsinline preload="metadata" poster="assets/film/o7dkt7.jpg" aria-label="Stellantis Matchmaker">
                         <source src="assets/film/o7dkt7.mp4" type="video/mp4">
                     </video></div>
                     <span class="reel-label">Stellantis Matchmaker</span>
                 </div>
-                <div class="reel-item reveal">
+                <div class="reel-item reveal" data-video="dx30qd" data-title="Golf Outing MHCC">
                     <div class="reel-frame"><video autoplay muted loop playsinline preload="metadata" poster="assets/film/dx30qd.jpg" aria-label="Golf Outing MHCC">
                         <source src="assets/film/dx30qd.mp4" type="video/mp4">
                     </video></div>
                     <span class="reel-label">Golf Outing MHCC</span>
                 </div>
-                <div class="reel-item reveal">
+                <div class="reel-item reveal" data-video="5bv7vs" data-title="Detroit Lions Tailgate">
                     <div class="reel-frame"><video autoplay muted loop playsinline preload="metadata" poster="assets/film/5bv7vs.jpg" aria-label="Detroit Lions Tailgate">
                         <source src="assets/film/5bv7vs.mp4" type="video/mp4">
                     </video></div>
                     <span class="reel-label">Detroit Lions Tailgate</span>
                 </div>
-                <div class="reel-item reveal">
+                <div class="reel-item reveal" data-video="qi42c2" data-title="MHCC Supplier Diversity">
                     <div class="reel-frame"><video autoplay muted loop playsinline preload="metadata" poster="assets/film/qi42c2.jpg" aria-label="MHCC Supplier Diversity">
                         <source src="assets/film/qi42c2.mp4" type="video/mp4">
                     </video></div>
                     <span class="reel-label">MHCC Supplier Diversity</span>
                 </div>
-                <div class="reel-item reveal">
+                <div class="reel-item reveal" data-video="pi5hfb" data-title="Veterans Roundtable Gala">
                     <div class="reel-frame"><video autoplay muted loop playsinline preload="metadata" poster="assets/film/pi5hfb.jpg" aria-label="Veterans Roundtable Gala">
                         <source src="assets/film/pi5hfb.mp4" type="video/mp4">
                     </video></div>
                     <span class="reel-label">Veterans Roundtable Gala</span>
                 </div>
-                <div class="reel-item reveal">
+                <div class="reel-item reveal" data-video="73fgte" data-title="MHCC Gala">
                     <div class="reel-frame"><video autoplay muted loop playsinline preload="metadata" poster="assets/film/73fgte.jpg" aria-label="MHCC Gala">
                         <source src="assets/film/73fgte.mp4" type="video/mp4">
                     </video></div>
                     <span class="reel-label">MHCC Gala</span>
                 </div>
-                <div class="reel-item reveal">
+                <div class="reel-item reveal" data-video="gzmcgm" data-title="Stellantis Salsa Event">
                     <div class="reel-frame"><video autoplay muted loop playsinline preload="metadata" poster="assets/film/gzmcgm.jpg" aria-label="Stellantis Salsa Event">
                         <source src="assets/film/gzmcgm.mp4" type="video/mp4">
                     </video></div>
                     <span class="reel-label">Stellantis Salsa Event</span>
                 </div>
-                <div class="reel-item reveal">
+                <div class="reel-item reveal" data-video="qrek7j" data-title="Stellantis Hispanic Heritage">
                     <div class="reel-frame"><video autoplay muted loop playsinline preload="metadata" poster="assets/film/qrek7j.jpg" aria-label="Stellantis Hispanic Heritage">
                         <source src="assets/film/qrek7j.mp4" type="video/mp4">
                     </video></div>
                     <span class="reel-label">Stellantis Hispanic Heritage</span>
                 </div>
-                <div class="reel-item reveal">
+                <div class="reel-item reveal" data-video="me7dgb" data-title="MHCC Economic Forum">
                     <div class="reel-frame"><video autoplay muted loop playsinline preload="metadata" poster="assets/film/me7dgb.jpg" aria-label="MHCC Economic Forum">
                         <source src="assets/film/me7dgb.mp4" type="video/mp4">
                     </video></div>
                     <span class="reel-label">MHCC Economic Forum</span>
                 </div>
-                <div class="reel-item reveal">
+                <div class="reel-item reveal" data-video="5m2brz" data-title="M1 Concourse">
                     <div class="reel-frame"><video autoplay muted loop playsinline preload="metadata" poster="assets/film/5m2brz.jpg" aria-label="M1 Concourse">
                         <source src="assets/film/5m2brz.mp4" type="video/mp4">
                     </video></div>
                     <span class="reel-label">M1 Concourse</span>
                 </div>
-                <div class="reel-item reveal">
-                    <div class="reel-frame"><video autoplay muted loop playsinline preload="metadata" poster="assets/film/aw0o6n.jpg" aria-label="Marvin Washington Reel">
-                        <source src="assets/film/aw0o6n.mp4" type="video/mp4">
+                <div class="reel-item reveal" data-video="smt-signature" data-title="SMT Signature Film">
+                    <div class="reel-frame"><video autoplay muted loop playsinline preload="metadata" poster="assets/film/smt-signature.jpg" aria-label="SMT Signature Film">
+                        <source src="assets/film/smt-signature.mp4" type="video/mp4">
                     </video></div>
-                    <span class="reel-label">Marvin Washington Reel</span>
+                    <span class="reel-label">SMT Signature Film</span>
                 </div>
-                <div class="reel-item reveal">
+                <div class="reel-item reveal" data-video="0q41fl" data-title="TotalNutrition NIL Showcase">
                     <div class="reel-frame"><video autoplay muted loop playsinline preload="metadata" poster="assets/film/0q41fl.jpg" aria-label="TotalNutrition NIL Showcase">
                         <source src="assets/film/0q41fl.mp4" type="video/mp4">
                     </video></div>
                     <span class="reel-label">TotalNutrition NIL Showcase</span>
                 </div>
-                <div class="reel-item reveal">
+                <div class="reel-item reveal" data-video="jxe2x1" data-title="Riverside Wharf">
                     <div class="reel-frame"><video autoplay muted loop playsinline preload="metadata" poster="assets/film/jxe2x1.jpg" aria-label="Riverside Wharf">
                         <source src="assets/film/jxe2x1.mp4" type="video/mp4">
                     </video></div>
                     <span class="reel-label">Riverside Wharf</span>
                 </div>
-                <div class="reel-item reveal">
+                <div class="reel-item reveal" data-video="t0kq28" data-title="Joanna Berg Interview">
                     <div class="reel-frame"><video autoplay muted loop playsinline preload="metadata" poster="assets/film/t0kq28.jpg" aria-label="Joanna Berg Interview">
                         <source src="assets/film/t0kq28.mp4" type="video/mp4">
                     </video></div>
                     <span class="reel-label">Joanna Berg Interview</span>
                 </div>
-                <div class="reel-item reveal">
+                <div class="reel-item reveal" data-video="ddzttw" data-title="River District 14 Construction">
                     <div class="reel-frame"><video autoplay muted loop playsinline preload="metadata" poster="assets/film/ddzttw.jpg" aria-label="River District 14 Construction">
                         <source src="assets/film/ddzttw.mp4" type="video/mp4">
                     </video></div>
@@ -863,6 +874,15 @@
             <text class="m-sparkle" x="6" y="44" font-size="6" fill="#FFCF5A" style="animation-delay:0s">&#10022;</text>
             <text class="m-sparkle" x="86" y="30" font-size="5" fill="#FFCF5A" style="animation-delay:1.4s">&#10022;</text>
         </svg>
+    </div>
+
+    <!-- Video Lightbox Modal -->
+    <div class="video-lightbox" id="videoLightbox">
+        <div class="video-lightbox-inner">
+            <button class="lightbox-close" id="lightboxClose">Close &times;</button>
+            <video id="lightboxVideo" controls playsinline preload="none"></video>
+            <span class="lightbox-title" id="lightboxTitle"></span>
+        </div>
     </div>
 
     <script>
@@ -1149,6 +1169,38 @@
             });
         }, { rootMargin: '100px' });
         vids.forEach(v => io.observe(v));
+    })();
+
+    // ─── Video Lightbox (full videos, self-hosted) ───
+    (function(){
+        const FULL_VIDEO_BASE = 'https://wom-portfolio-media.netlify.app/';
+        const lightbox = document.getElementById('videoLightbox');
+        const lbVideo = document.getElementById('lightboxVideo');
+        const lbTitle = document.getElementById('lightboxTitle');
+        const lbClose = document.getElementById('lightboxClose');
+
+        document.querySelectorAll('.reel-item[data-video]').forEach(item => {
+            item.addEventListener('click', () => {
+                const vid = item.dataset.video;
+                lbVideo.src = FULL_VIDEO_BASE + vid + '.mp4';
+                lbVideo.poster = 'assets/film/' + vid + '.jpg';
+                lbTitle.textContent = item.dataset.title || '';
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                lbVideo.play().catch(() => {});
+            });
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            lbVideo.pause();
+            lbVideo.removeAttribute('src');
+            lbVideo.load();
+            document.body.style.overflow = '';
+        }
+        lbClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox(); });
     })();
 
     // ─── Hero Flash Tags ───
