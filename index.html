@@ -1089,8 +1089,11 @@
             background: rgba(0,0,0,0.72);
             backdrop-filter: blur(6px);
             z-index: 10000;
-            display: flex; align-items: center; justify-content: center;
+            display: flex; align-items: flex-start; justify-content: center;
             padding: 20px;
+            padding-top: max(20px, env(safe-area-inset-top));
+            padding-bottom: max(20px, env(safe-area-inset-bottom));
+            overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain;
             opacity: 0; pointer-events: none;
             transition: opacity 0.4s ease;
         }
@@ -1099,8 +1102,9 @@
             background: var(--black-2);
             border: 1px solid rgba(255,207,90,0.28);
             border-radius: 18px;
-            padding: 40px 36px 32px;
+            padding: 48px 36px 32px;
             width: 100%; max-width: 420px;
+            margin: auto; flex-shrink: 0;
             position: relative;
             transform: translateY(24px) scale(0.97);
             transition: transform 0.4s cubic-bezier(.18,.89,.32,1.28);
@@ -1108,13 +1112,17 @@
         }
         .lead-overlay.open .lead-card { transform: translateY(0) scale(1); }
         .lead-close {
-            position: absolute; top: 16px; right: 18px;
-            background: none; border: none;
-            color: var(--muted); font-size: 1.3rem; line-height: 1;
-            cursor: pointer; padding: 4px 8px; border-radius: 6px;
-            transition: color 0.2s, background 0.2s;
+            position: absolute; top: 12px; right: 12px; z-index: 2;
+            width: 48px; height: 48px; border-radius: 50%;
+            background: rgba(255,207,90,0.16);
+            border: 1.5px solid var(--gold);
+            color: var(--cream); font-size: 1.9rem; line-height: 1; font-weight: 400;
+            cursor: pointer; padding: 0 0 3px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+            transition: background 0.2s, color 0.2s, transform 0.15s;
         }
-        .lead-close:hover { color: var(--cream); background: rgba(255,255,255,0.06); }
+        .lead-close:hover, .lead-close:focus-visible { background: var(--gold); color: #1a1a0e; transform: scale(1.06); outline: none; }
         .lead-eyebrow {
             font-family: var(--font-label);
             font-size: 0.58rem; font-weight: 600;
@@ -1162,8 +1170,9 @@
         .lead-submit:hover { opacity: 0.88; transform: translateY(-1px); }
         .lead-submit:active { transform: translateY(0); }
         .lead-skip {
-            display: block; text-align: center; margin-top: 14px;
-            font-size: 0.72rem; color: var(--muted);
+            display: block; width: 100%; text-align: center; margin-top: 8px;
+            padding: 10px; background: none; border: none;
+            font-family: var(--font-body); font-size: 0.72rem; color: var(--muted);
             cursor: pointer; transition: color 0.2s;
         }
         .lead-skip:hover { color: var(--cream); }
@@ -1173,7 +1182,7 @@
         .lead-success .lead-title { font-size: 1.3rem; margin-bottom: 10px; }
         .lead-success p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
         @media (max-width: 480px) {
-            .lead-card { padding: 32px 22px 26px; }
+            .lead-card { padding: 44px 22px 26px; }
             .lead-row { grid-template-columns: 1fr; }
             .lead-title { font-size: 1.3rem; }
         }
@@ -2350,7 +2359,7 @@
                     </div>
                     <button type="submit" class="lead-submit">Send It →</button>
                 </form>
-                <span class="lead-skip" id="leadSkip">No thanks, maybe later</span>
+                <button type="button" class="lead-skip" id="leadSkip">No thanks, maybe later</button>
             </div>
 
             <!-- Success view -->
@@ -2365,7 +2374,9 @@
     <script>
     (function(){
         const STORAGE_KEY = 'wom_lead_seen';
-        if (localStorage.getItem(STORAGE_KEY)) return; // already seen
+        let seen = false;
+        try { seen = !!localStorage.getItem(STORAGE_KEY); } catch(_) {}
+        if (seen) return; // already seen
 
         const overlay  = document.getElementById('leadOverlay');
         const formWrap = document.getElementById('leadFormWrap');
@@ -2375,7 +2386,7 @@
         function openPopup() { overlay.classList.add('open'); }
         function closePopup() {
             overlay.classList.remove('open');
-            localStorage.setItem(STORAGE_KEY, '1');
+            try { localStorage.setItem(STORAGE_KEY, '1'); } catch(_) {}
         }
 
         // Show after 3 seconds
@@ -2385,6 +2396,9 @@
         document.getElementById('leadClose').addEventListener('click', closePopup);
         document.getElementById('leadSkip').addEventListener('click', closePopup);
         overlay.addEventListener('click', e => { if (e.target === overlay) closePopup(); });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && overlay.classList.contains('open')) closePopup();
+        });
 
         // Form submit — swap in your Web3Forms access_key below
         form.addEventListener('submit', async e => {
